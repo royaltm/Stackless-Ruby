@@ -91,8 +91,8 @@ They appeared in 1.9 Ruby and have been announced as
 Which means that every Fiber instance is some kind of independent
 thread-like entity, with it's own stack but doesn't run anything unless told to.
 You can create a fiber from proc, call it and it can yield control
-(and some variables) back to you and you can told to continue it's work
-(passing again some variables to it).
+(and some variables) back to you and you can tell it to continue it's work
+(passing again some variables).
 
 Quite complex.. but also it means we can just create a fiber, call it
 and wait for it to return... sooo... yeah I think you've got the idea by now.
@@ -100,7 +100,7 @@ and wait for it to return... sooo... yeah I think you've got the idea by now.
 stackless.rb is just a bunch of module/class functions that wraps a method
 call into a Fiber. As you would expect creating a fiber is slower than
 just calling a function, so it checks for current stack level with
-Kernel.caller and creates fibers only if it grew too much, up to the
+Kernel.caller and creates new fiber only if it grew too much, up to the
 configurable limit.
 
 ##Usage:
