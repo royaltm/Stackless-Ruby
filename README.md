@@ -97,7 +97,7 @@ You can create a fiber from proc, call it and it can yield control
 Quite complex.. but also it means we can just create a fiber, call it
 and wait for it to return... sooo... yeah I think you've got the idea by now.
 
-stackless.rb is just a bunch of module/class functions that wraps a method
+`stackless.rb` is just a bunch of module/class functions that wraps a method
 call into a Fiber. As you would expect creating a fiber is slower than
 just calling a function, so it checks for current stack level with
 Kernel.caller and creates new fiber only if it grew too much, up to the
