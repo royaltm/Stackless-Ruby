@@ -47,13 +47,13 @@ How would I know if it should be enough (for everyone)?
 
 but.. wait... there it is, YES!
 
-##SHINY, BRILLIANT AND TASTY
+###SHINY, BRILLIANT AND TASTY
 
 (yes I think programs have their own smell and taste)
 
-# S.T.A.C.K.L.E.S.S
+## S.T.A.C.K.L.E.S.S
 
-Your recursive funcs may no longer fear the wrath of the SystemStackError error!
+*Your recursive funcs may no longer fear the wrath of the SystemStackError error!*
 
 Yeah... right... let's try it then
 
