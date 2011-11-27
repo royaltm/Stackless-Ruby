@@ -1,7 +1,7 @@
 #Stackless Ruby
 
-It depends on the taste, needs, and skills (in that order), but I personally rather like to write programs recursively.
-Don't like too many control variables floating around. It always gets messy in the end.
+It depends on the taste, needs and skills (in that order), but I like to write programs recursively.
+When too many control variables are floating around it will get messy in the end.
 
 Writing recursive is easy and it looks good.
 
@@ -88,10 +88,10 @@ Nope, the solution is simple, pure Ruby and it uses:
 They appeared in 1.9 Ruby and have been announced as
 "primitives for implementing light weight cooperative concurrency in Ruby".
 
-Which means that every Fiber instance is a some kind of independent
+Which means that every Fiber instance is some kind of independent
 thread-like entity, with it's own stack but doesn't run anything unless told to.
-You can create a fiber from proc, and call it, and it can yield control
-(and some variables) back to you, and you can told to continue it's work
+You can create a fiber from proc, call it and it can yield control
+(and some variables) back to you and you can told to continue it's work
 (passing again some variables to it).
 
 Quite complex.. but also it means we can just create a fiber, call it
@@ -137,7 +137,7 @@ but you risk of going over the fiber stack which is only 4KB.
 
 You can't wrap calls to stackless methods with throw/catch as it is based purely on local stack.
 The throw() will not be catched by catch() if there will be a fiber call between them.
-However you can still use it inside stackless methods and on non-stackless calls.
+However you can still use it inside stackless methods and between non-stackless calls.
 If you need to throw/catch from stackless method, use raise/rescue instead.
 
 Stackless through fibers is very fresh idea, still untested in many environments,
