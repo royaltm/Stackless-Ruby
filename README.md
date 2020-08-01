@@ -1,4 +1,4 @@
-#Stackless Ruby
+# Stackless Ruby
 
 It depends on the taste, needs and skills (in that order), but I like to write programs recursively.
 When too many control variables are floating around it will get messy in the end.
@@ -30,7 +30,7 @@ test it then
     Math.power(24)
     => 620448401733239439360000
 
-allrighty, looks good
+alrighty, looks good
 
 hmmm.... how about
 
@@ -47,7 +47,7 @@ How would I know if it should be enough (for everyone)?
 
 but.. wait... there it is, YES!
 
-###SHINY, BRILLIANT AND TASTY
+### SHINY, BRILLIANT AND TASTY
 
 (yes I think programs have their own smell and taste)
 
@@ -83,7 +83,7 @@ ok... how? why? what? did it mess with some Ruby internals?
 
 Nope, the solution is simple, pure Ruby and it uses:
 
-###Fibers
+### Fibers
 
 They appeared in 1.9 Ruby and have been announced as
 "primitives for implementing light weight cooperative concurrency in Ruby".
@@ -103,9 +103,9 @@ just calling a function, so it checks for current stack level with
 Kernel.caller and creates new fiber only if it grew too much, up to the
 configurable limit.
 
-##Usage:
+## Usage:
 
-###set up
+### set up
 
     class Someclass
       def my_recursive(*args, &blk)
@@ -118,22 +118,22 @@ The `allow_stack` is optional and defaults to 200.
 The greater it is the faster wrapped method performs (less frequent fiber creation),
 but you risk of going over the fiber stack which is only 4KB.
 
-###call
+### call
 
     Someclass.new.my_recursive ...
 
-###check if stackless
+### check if stackless
 
     Someclass.stackless_method? :my_recursive
     => true
 
-###remove stackless wrapper
+### remove stackless wrapper
 
     Someclass.remove_stackless :my_recursive
     Someclass.stackless_method? :my_recursive
     => false
 
-##Known Bugs & Limitations
+## Known Bugs & Limitations
 
 You can't wrap calls to stackless methods with throw/catch as it is based purely on local stack.
 The throw() will not be catched by catch() if there will be a fiber call between them.
